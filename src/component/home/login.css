@@ -1,0 +1,19 @@
+#login {
+    display: flex;
+    justify-content: center;
+}
+
+#login-card{
+    text-align: center;
+    width: 400px;
+    height: 300px;
+    margin: 100px 0 0 0;
+}
+
+#login-button {
+    width:250px
+}
+
+.input {
+    width:250px
+}

@@ -1,9 +1,26 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-const Page2 = () => (
-  <div>
-    22222222222222
-  </div>
-) ;
 
-export default Page2;
+class Page2 extends React.Component {
+
+  componentDidMount(){
+    console.log(this.props.privateKey)
+  }
+
+  render(){
+    // const {privateKey} = this.props;
+    return(
+      <div>
+
+        转账
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = state =>({
+  privateKey: state.registerReducer.privateKey
+});
+
+export default connect(mapStateToProps)(Page2);

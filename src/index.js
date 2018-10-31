@@ -1,20 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {ConnectedRouter} from 'connected-react-router';
-import './component/home/index.css';
+import './index.css';
+import 'typeface-roboto';
 import AppRouter from './component/router/appRouter';
 import {Provider} from 'react-redux';
 import store,{history} from './store/store';
+
 
 
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
+    <ConnectedRouter history={history} onLocationChanged={null}>
       <AppRouter />
     </ConnectedRouter>
-  </Provider>, 
+  </Provider>,
   document.getElementById('root')
 );
 
