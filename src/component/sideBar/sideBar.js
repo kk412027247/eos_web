@@ -6,9 +6,14 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import ListItemText from '@material-ui/core/ListItemText';
+
+import {handleNav} from "../../actions/navAction";
+import {bindActionCreators} from "redux";
+import {handleLogout} from "../../actions/registerAction";
+import {connect} from "react-redux";
 import './sideBar.css'
 
-const SideBar = () => (
+const SideBar = ({handleNav, handleLogout}) => (
   <Drawer
     variant="permanent"
     anchor={'left'}
@@ -18,7 +23,11 @@ const SideBar = () => (
     <List id={'side-bar-list'}>
       <hr/>
       {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-        <ListItem button key={text}>
+        <ListItem
+          button
+          key={text}
+          onClick={handleNav.bind(null,'/page2/')}
+        >
           <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
           <ListItemText primary={text} />
         </ListItem>
@@ -27,4 +36,8 @@ const SideBar = () => (
   </Drawer>
 );
 
-export default SideBar;
+const mapDispatchToProps = dispatch => bindActionCreators({handleNav, handleLogout}, dispatch);
+
+export default connect(null, mapDispatchToProps)(SideBar);
+
+
