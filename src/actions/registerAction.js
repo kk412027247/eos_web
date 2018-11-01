@@ -14,10 +14,6 @@ export const handlePassword = password => ({
   password: password.target.value,
 });
 
-// 检测用户名是否存在
-
-
-
 
 // 登录
 export const handleLogin = () => (dispatch, getState) => {
@@ -44,6 +40,7 @@ export const handleLogin = () => (dispatch, getState) => {
 
       // 私钥保存在浏览器，
       localStorage.setItem(`privateKey`, privateKey);
+      localStorage.setItem('username', username);
 
       // store 保存私钥
       dispatch(handlePrivateKey(privateKey));
@@ -76,3 +73,44 @@ export const handlePrivateKey = privateKey => ({
   type:'HANDLE_PRIVATE_KEY',
   privateKey
 });
+
+export const handleNewUsername = newUsername => ({
+  type:'HANDLE_NEW_USERNAME',
+  newUsername: newUsername.target.value,
+});
+
+export const handleNewPassword = newPassword => ({
+  type:'HANDLE_NEW_PASSWORD',
+  newPassword:newPassword.target.value
+});
+
+export const handleRegister = () => async (dispatch, getState) => {
+  const {newUsername, newPassword} = getState().registerReducer;
+
+  if(newUsername.length !== 12){
+    alert('这个名字起的不行啊，一定要12位');
+    return
+  }
+
+  const newPrivateKey = ecc.seedPrivate(newUsername + newPassword);
+  const newPublicKey = ecc.privateToPublic(newPrivateKey);
+
+  const res = await fetch('http://192.168.0.180:5000',{
+    method:'post',
+    headers:{'Content-Type' : 'application/json'},
+    body:JSON.stringify({
+      username: newUsername,
+      publicKey: newPublicKey,
+    })
+  });
+
+  const json = await res.json();
+
+
+  if(json.code === 500){
+    alert(`注册失败: ${json.error.what}`);
+    return;
+  }
+
+  alert('完事儿了, 注册成功, 请登录')
+};

@@ -21,6 +21,20 @@ export default (state={}, action)=>{
       }
     }
 
+    case 'HANDLE_NEW_USERNAME':{
+      return{
+        ...state,
+        newUsername: action.newUsername
+      }
+    }
+
+    case 'HANDLE_NEW_PASSWORD':{
+      return{
+        ...state,
+        newPassword: action.newPassword
+      }
+    }
+
     default: return state
   }
 }

@@ -7,10 +7,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
-import './nav.css';
 import {handleNav} from "../../actions/navAction";
 import {handleLogout} from '../../actions/registerAction';
-
+import './nav.css';
 
 const Nav = ({handleNav, handleLogout, login}) =>(
   <nav id={'nav'}>
@@ -22,7 +21,7 @@ const Nav = ({handleNav, handleLogout, login}) =>(
         <ListItemIcon>
           <InboxIcon />
         </ListItemIcon>
-        <ListItemText primary="历史" />
+        <ListItemText primary="账户历史" />
       </ListItem>
       <ListItem
         button
@@ -55,7 +54,9 @@ const Nav = ({handleNav, handleLogout, login}) =>(
   </nav>
 );
 
-const mapStateToProps = state => ({login: !!state.registerReducer.privateKey});
+const mapStateToProps = state => ({
+  login: !!state.registerReducer.privateKey,
+});
 
 const mapDispatchToProps = dispatch => bindActionCreators({handleNav, handleLogout}, dispatch);
 

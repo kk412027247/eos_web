@@ -29,7 +29,7 @@ export class Wallet {
     }else{
       this.api = {}
     }
-    console.log(this.api)
+
   }
 
   // 解锁钱包

@@ -17,10 +17,12 @@ const AppRouter = () =>
     <br/>
 
     <Nav/>
+    <hr/>
     <Route path={'/'} exact component={Home}/>
     <Route path={'/page1/'} exact component={Page1}/>
     <Route path={'/page2/'} exact component={Page2}/>
     <Route path={'/page3/'} exact component={Page3}/>
+
   </div>
 ;
 

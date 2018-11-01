@@ -7,6 +7,22 @@ export default (state={}, action)=>{
       }
     }
 
+    case 'HANDLE_AMOUNT' :{
+      return {
+        ...state,
+        amount: action.amount
+      }
+    }
+
+    case 'HANDLE_MEMO':{
+      return {
+        ...state,
+        memo:action.memo,
+      }
+    }
+
+
+
     default: return state;
   }
 
