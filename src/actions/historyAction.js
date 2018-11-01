@@ -3,10 +3,11 @@ import {rpc} from '../wallet/wallet';
 
 export const getHistory = () => (
   async (dispatch, getState)=>{
+    dispatch(getBalance());
     const username = getState().registerReducer.username;
     const myHistory = getState().historyReducer.history;
     const actionHistory = await rpc.history_get_actions(username);
-    console.log(actionHistory);
+    // console.log(actionHistory);
     const history = actionHistory
       .actions
       .filter(item=>item.action_trace.receipt.receiver === username)
@@ -32,3 +33,13 @@ export const getHistory = () => (
   }
 );
 
+
+export const getBalance = () => async (dispatch, getState) => {
+  const {username} = getState().registerReducer;
+
+  const balance = await rpc.get_currency_balance('eosio.token', username);
+  dispatch({
+    type:'HANDLE_BALANCE',
+    balance
+  });
+};

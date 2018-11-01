@@ -34,6 +34,7 @@ const initState ={
   },
   historyReducer:{
     history:[],
+    balance:[],
   }
 };
 

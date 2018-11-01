@@ -7,6 +7,14 @@ export default (state={}, action)=>{
       }
     }
 
+    case 'HANDLE_BALANCE' :{
+      return{
+        ...state,
+        balance: action.balance
+      }
+    }
+
+
     default: return state;
 
   }

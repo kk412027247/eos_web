@@ -12,10 +12,10 @@ class Page1 extends React.Component {
   }
 
   render(){
-    const {getHistory, history} = this.props;
+    const {getHistory, history, balance} = this.props;
     return(
       <div>
-
+        <h2>账户历史</h2>
         <Button
           variant="contained"
           onClick={getHistory}
@@ -23,6 +23,9 @@ class Page1 extends React.Component {
         >
           刷新历史信息
         </Button>
+        <br/>
+        <br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资产：{balance.map(item=>item+' | ')}
         <br/>
         {
           history.map(item=>
@@ -46,7 +49,10 @@ class Page1 extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({history: state.historyReducer.history});
+const mapStateToProps = state => ({
+  history: state.historyReducer.history,
+  balance: state.historyReducer.balance,
+});
 
 const mapDispatchToProps = dispatch => bindActionCreators({getHistory}, dispatch);
 
