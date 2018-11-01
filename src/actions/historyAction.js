@@ -6,7 +6,8 @@ export const getHistory = () => (
     dispatch(getBalance());
     const username = getState().registerReducer.username;
     const myHistory = getState().historyReducer.history;
-    const actionHistory = await rpc.history_get_actions(username);
+    // 取历史，默认只取最后20条，这里先默认取1000条把
+    const actionHistory = await rpc.history_get_actions(username,0,1000);
     // console.log(actionHistory);
     const history = actionHistory
       .actions
