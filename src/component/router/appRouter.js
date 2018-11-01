@@ -7,11 +7,13 @@ import Home from '../home/home';
 import Page1 from "../page1/page1";
 import Page3 from "../page3/page3";
 import Page2 from "../page2/page2";
+import SideBar from '../sideBar/sideBar';
 
 
 const AppRouter = () =>
   <div>
     <Header/>
+    <SideBar/>
     <br/>
     <br/>
     <br/>
