@@ -12,7 +12,14 @@ const { TextDecoder, TextEncoder } = require('text-encoding');
 
 // rpc 对象可以运行 eos的rpc命令
 // rpc 命令查询 https://eosio.github.io/eosjs/classes/json_rpc.jsonrpc.html
-export const rpc = new JsonRpc('http://junglehistory.cryptolions.io:18888', { fetch });
+// 正式
+// const url = 'http://18.136.16.20:8888';
+// const url = 'https://mainnet.meet.one';
+// const url = 'https://api.eosnewyork.io:443';
+const url ='https://eos.greymass.com';
+// 公测
+// const url = 'http://junglehistory.cryptolions.io:18888';
+export const rpc = new JsonRpc(url, { fetch });
 
 
 // api 对象可以运行eos的合约，比如转账，创建账号等等(需要费用的操作)

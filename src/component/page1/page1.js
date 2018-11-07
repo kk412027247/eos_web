@@ -14,7 +14,7 @@ class Page1 extends React.Component {
   render(){
     const {getHistory, history, balance} = this.props;
     return(
-      <div>
+      <div id={'history'}>
         <h2>账户历史</h2>
         <Button
           variant="contained"
@@ -25,7 +25,7 @@ class Page1 extends React.Component {
         </Button>
         <br/>
         <br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资产：{balance.map(item=>item+' | ')}
+        资产：{balance.map(item=>item+' | ')}
         <br/>
         {
           history.map(item=>

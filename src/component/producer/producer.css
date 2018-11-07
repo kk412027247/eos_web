@@ -1,0 +1,28 @@
+#producer {
+    padding: 10px 0 0 20px;
+}
+
+#producer p {
+    display: inline-block;
+    margin:8px 0;
+}
+
+#producer .index {
+    width: 50px;
+}
+
+#producer .owner {
+    width: 150px;
+}
+
+#producer .url {
+    width: 330px;
+}
+
+#producer .rate {
+    width: 80px;
+}
+
+#producer .votes {
+    width: 130px;
+}

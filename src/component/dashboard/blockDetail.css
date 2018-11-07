@@ -1,0 +1,43 @@
+#block-detail {
+    padding: 0 0 0 20px;
+}
+
+#block-detail p {
+    display: inline-block;
+    margin: 10px 0;
+}
+
+#transaction p{
+    font-size:13px;
+}
+
+#transaction .index {
+    width: 50px;
+}
+
+#transaction .id {
+    width: 500px;
+}
+
+#transaction .status {
+    width:80px;
+}
+
+#transaction .cpu {
+    width: 80px;
+}
+
+#transaction .net {
+    width: 80px;
+
+}
+
+#block-detail .click {
+    color: blueviolet;
+    cursor: pointer;
+
+}
+
+#block-detail .click:hover{
+    text-decoration: underline;
+}

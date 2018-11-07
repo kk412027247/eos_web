@@ -1,0 +1,63 @@
+#dashboard {
+    padding: 0 0 0 20px;
+}
+
+#dashboard p {
+    display: inline-block;
+    margin:5px 0;
+}
+
+.label {
+    width: 250px;
+}
+
+#dashboard .click {
+    color: blueviolet;
+    cursor: pointer;
+
+}
+
+#dashboard .click:hover{
+    text-decoration: underline;
+}
+
+.transaction-item p, .block-info p{
+    font-size:11px;
+}
+
+.id{
+    width: 500px;
+}
+
+.block-number{
+    width:120px;
+}
+
+.cpu{
+    width:120px;
+}
+
+.net {
+    width:120px;
+}
+
+.actions {
+    width:50px;
+}
+
+.block-num {
+    width:130px;
+}
+
+.time {
+    width:180px;
+}
+
+.producer {
+    width:130px;
+}
+
+.actions2 {
+    width:100px;
+}
+

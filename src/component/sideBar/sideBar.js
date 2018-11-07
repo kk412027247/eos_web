@@ -5,13 +5,30 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import Computer from '@material-ui/icons/Computer'
 import ListItemText from '@material-ui/core/ListItemText';
+import Build from '@material-ui/icons/Build';
 
 import {handleNav} from "../../actions/navAction";
 import {bindActionCreators} from "redux";
 import {handleLogout} from "../../actions/registerAction";
 import {connect} from "react-redux";
 import './sideBar.css'
+
+
+const NavItem = ({Icon, path, title, handleNav}) => (
+  <ListItem
+    button
+    onClick={handleNav.bind(null,path)}
+  >
+    <ListItemIcon>
+      <Icon/>
+    </ListItemIcon>
+    <ListItemText
+      primary={title}
+    />
+  </ListItem>
+);
 
 const SideBar = ({handleNav, handleLogout}) => (
   <Drawer
@@ -22,16 +39,48 @@ const SideBar = ({handleNav, handleLogout}) => (
 
     <List id={'side-bar-list'}>
       <hr/>
-      {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-        <ListItem
-          button
-          key={text}
-          onClick={handleNav.bind(null,'/page2/')}
-        >
-          <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-          <ListItemText primary={text} />
-        </ListItem>
-      ))}
+      <NavItem
+        Icon={Computer}
+        path={'/dashboard/'}
+        title={'区块信息'}
+        handleNav={handleNav}
+      />
+
+      <NavItem
+        Icon={Build}
+        path={'/producer/'}
+        title={'生产者'}
+        handleNav={handleNav}
+      />
+
+      <ListItem
+        button
+        onClick={handleNav.bind(null,'/page1/')}
+      >
+        <ListItemIcon><InboxIcon/></ListItemIcon>
+        <ListItemText primary={'历史操作'} />
+      </ListItem>
+      <ListItem
+        button
+        onClick={handleNav.bind(null,'/page2/')}
+      >
+        <ListItemIcon><MailIcon/></ListItemIcon>
+        <ListItemText primary={'转账'} />
+      </ListItem>
+      <ListItem
+        button
+        onClick={handleNav.bind(null,'/page3/')}
+      >
+        <ListItemIcon><InboxIcon/></ListItemIcon>
+        <ListItemText primary={'注册'} />
+      </ListItem>
+      <ListItem
+        button
+        onClick={handleLogout}
+      >
+        <ListItemIcon><MailIcon/></ListItemIcon>
+        <ListItemText primary={'登录'} />
+      </ListItem>
     </List>
   </Drawer>
 );

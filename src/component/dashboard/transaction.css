@@ -1,0 +1,32 @@
+#transaction {
+    padding: 0 0 0 20px;
+}
+
+#transaction p{
+    display: inline-block;
+    margin: 0;
+}
+
+#transaction .label{
+    width:160px;
+}
+
+#transaction .index {
+    width:60px;
+}
+
+#transaction .account {
+    width: 200px;
+}
+
+#transaction  .authorization {
+    width: 200px;
+}
+
+#transaction .name {
+    width:200px;
+}
+
+#transaction .title {
+    font-size: 17px;
+}

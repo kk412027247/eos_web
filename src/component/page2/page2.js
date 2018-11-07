@@ -17,7 +17,6 @@ class Page2 extends React.Component {
     return(
       <div>
         <h2>转账</h2>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         资产：{balance.map(item=>item+' | ')}
         <br/>
         <TextField
@@ -43,7 +42,6 @@ class Page2 extends React.Component {
         />
         <br/>
         <br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <Button variant="contained" color="primary" onClick={handleTransfer}>
           提交
         </Button>
