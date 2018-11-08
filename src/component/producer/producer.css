@@ -26,3 +26,13 @@
 #producer .votes {
     width: 130px;
 }
+
+#producer .click {
+    color: blueviolet;
+    cursor: pointer;
+
+}
+
+#producer .click:hover{
+    text-decoration: underline;
+}

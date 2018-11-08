@@ -30,3 +30,13 @@
 #transaction .title {
     font-size: 17px;
 }
+
+#transaction .click {
+    color: blueviolet;
+    cursor: pointer;
+
+}
+
+#transaction .click:hover{
+    text-decoration: underline;
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {handleTransactionDetail} from '../../actions/dashboardAction';
+import {handleNav} from '../../actions/navAction';
 import './transaction.css';
 
 
@@ -12,7 +13,7 @@ class Transaction extends React.Component {
   }
 
   render(){
-    const {transactionDetail} = this.props;
+    const {transactionDetail, handleNav} = this.props;
     // console.log(transactionDetail)
     return(
       <div id={'transaction'}>
@@ -57,7 +58,12 @@ class Transaction extends React.Component {
           ? transactionDetail.trx.trx.actions.map((item, index)=>(
             <div key={index}>
               <p className={'index'}>{index + 1}</p>
-              <p className={'account'}>{item.account}</p>
+              <p
+                className={'account click'}
+                onClick={handleNav.bind(null, '/userDetail/'+item.account)}
+              >
+                {item.account}
+              </p>
               <p className={'authorization'}>{item.authorization[0] ? item.authorization[0].actor : ''}</p>
               <p className={'name'}>{item.name}</p>
             </div>
@@ -74,6 +80,6 @@ const mapStateToProps = state => ({
   transactionDetail: state.dashboardReducer.transactionDetail
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({handleTransactionDetail},dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({handleTransactionDetail, handleNav},dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Transaction);

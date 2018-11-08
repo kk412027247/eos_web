@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {handleProducerList, handleVoteRate} from '../../actions/producerAction';
+import {handleNav} from '../../actions/navAction';
 import './producer.css';
 
 class Producer extends React.Component {
@@ -20,7 +21,7 @@ class Producer extends React.Component {
   }
 
   render(){
-    const {producerList, voteRate, eosSupply, totalActivatedStake, totalProducerVoteWeight} = this.props;
+    const {producerList, voteRate, eosSupply, totalActivatedStake, totalProducerVoteWeight, handleNav} = this.props;
 
     return(
       <div id={'producer'}>
@@ -45,8 +46,13 @@ class Producer extends React.Component {
             const rage = item.total_votes / totalProducerVoteWeight;
             return(
               <div key={item.owner}>
-                <p className={'index'}>{index}</p>
-                <p className={'owner'}>{item.owner}</p>
+                <p className={'index'}>{index+1}</p>
+                <p
+                  className={'owner click'}
+                  onClick={handleNav.bind(null, '/userDetail/'+item.owner)}
+                >
+                  {item.owner}
+                </p>
                 <p className={'url'}>
                   <a
                     href={item.url}
@@ -75,7 +81,7 @@ const stateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  handleProducerList,handleVoteRate,
+  handleProducerList,handleVoteRate,handleNav
 }, dispatch);
 
 export default connect(stateToProps, mapDispatchToProps)(Producer);

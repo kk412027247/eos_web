@@ -59,7 +59,8 @@ export const handleUserInfo = user => dispatch => {
           keys:[{
             key:'1'
           }]
-        }
+        },
+        perm_name:'1',
       }],
     }
   });

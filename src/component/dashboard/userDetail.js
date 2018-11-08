@@ -25,13 +25,12 @@ class UserDetail extends React.Component{
 
         {
           userInfo.permissions.map(item=>(
-            <div key={item.required_auth.keys[0].key}>
-              {item.required_auth.keys[0].key}
+            <div key={item.perm_name}>
+              {item.required_auth.keys[0] ? item.required_auth.keys[0].key : ''}
               <br/>
             </div>
           ))
         }
-
 
         <p>创建日期</p> <p>{new Date(userInfo.created+'Z').toLocaleString()}</p>
         <br/>

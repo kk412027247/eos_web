@@ -54,11 +54,12 @@ const initState ={
     },
     userInfo:{
       permissions:[{
-          required_auth:{
-            keys:[{
-              key:'1'
-            }]
-          }
+        required_auth:{
+          keys:[{
+            key:'1'
+          }]
+        },
+        perm_name:'1'
       }],
     },
     transactionDetail:{
